@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+admin_permissions = {'Post' => ['create', 'read', 'update', 'destroy']}
+Admin.create(:first_name => 'System Admin', :permissions => admin_permissions)
+puts '==== Created Admin User'
+
+participant_permissions = {'Post' => ['read']}
+Participant.create(:first_name => 'John', :permissions => participant_permissions)
+puts '==== Created Participant User'
+
+Post.create(:title => 'Install Rails')
+puts '==== Created Post'
