@@ -3,14 +3,14 @@ RBAC with Pundit Gem with ability to change permission dynamically
 
 STEPS:
 
-$ rake db:create -t
-$ rake db:migrate -t
-$ rake db:seed -t
+   $ rake db:create -t
+   $ rake db:migrate -t
+   $ rake db:seed -t
 
 Seed will populate One Admin User, One participant User and a Post data
 
 User Data Sample:
-[
+   [
 
     [0] #<Admin:0x007f4fd2ea46c8> {
 
@@ -63,11 +63,11 @@ User Data Sample:
 
     }
 
-]
+   ]
 
 
 Post Data:
-[
+   [
 
     [0] #<Post:0x007f4fd59655b0> {
 
@@ -85,24 +85,24 @@ Post Data:
 
     }
 
-]
+   ]
 
 Note: Using postgres hstore to store permissions
 Request:
-PUT posts/:id
+   PUT posts/:id
 
 Example:
-PUT http://localhost:3000/posts/1
+   PUT http://localhost:3000/posts/1
 Body data: 
-user_id : 1
+   user_id : 1
 
 Response: 
-{
-  "success": "Updated"
-}
+   {
+     "success": "Updated"
+   }
 
 for user_id: 2
 Response:
-{
-  "error": "Unauthorised"
-}
+   {
+     "error": "Unauthorised"
+   }
