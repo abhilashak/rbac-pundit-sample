@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
   def current_user
     User.find_by_id params[:user_id]
   end
+
+  def permission_denied
+    render json: {error: 'You are not authorized to access this page'}
+  end
 end

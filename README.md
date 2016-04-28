@@ -114,3 +114,41 @@ Response:
    {
      "error": "Unauthorised"
    }
+
+View all permissions:
+ 
+   GET http://localhost:3000/users/permissions?user_id=1
+
+Example Response:
+
+   [
+     {"User":"System Admin","Type":"Admin","Permissions":{"Post":"[\"create\", \"read\", \"update\", \"destroy\"]"}},
+     
+     {"User":"John","Type":"Participant","Permissions":{"Post":"[\"read\"]"}}
+   ]
+
+Check Permission of one User:
+
+   GET http://localhost:3000/users/permissions/2?user_id=1
+
+Example Response:
+
+   {"User":"John","Type":"Participant","Permissions":{"Post":"[\"read\"]"}}
+
+Modify Permissions Example
+
+   PUT http://localhost:3000/users/permissions/2
+
+   body:
+   
+      user_id: 1
+      model: Post
+      operation: create
+      value: true
+
+Sample Response:
+
+   {"User":"John","Type":"Participant","Permissions":{"Post":["read","create"]}}
+
+
+

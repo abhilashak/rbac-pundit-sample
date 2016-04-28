@@ -1,0 +1,5 @@
+<% User.all.each do |user| %>
+  <div> User: <%= user.first_name %></div>
+  <div> Type: <%= user.type %></div>
+  <div> Permissions: <%= user.permissions %></div>
+<% end %>
